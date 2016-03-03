@@ -1,0 +1,20 @@
+{
+  "name": "glossaries",
+  "version": "1.0.0",
+  "description": "Bilingual glossaries",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "English",
+    "Russian",
+    "glossaries"
+  ],
+  "author": "elsacha",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "mongoose": "^4.4.5"
+  }
+}
