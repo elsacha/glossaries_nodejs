@@ -14,7 +14,9 @@
   "author": "elsacha",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.7.1",
     "express": "^4.13.4",
-    "mongoose": "^4.4.5"
+    "mongoose": "^4.4.5",
+    "underscore": "^1.8.3"
   }
 }

@@ -1,5 +1,13 @@
-var express = require('express');
-var app = express();
+var express = require('express')
+  , cors = require('cors')
+  , app = express();
+
+//var corsOptions = {
+//  origin: 'http://127.0.0.1'
+//};
+
+app.options('/engrus/:w', cors()); // enable pre-flight request for DELETE request
+
 
 var port = process.env.PORT || 3000;
 
@@ -34,10 +42,16 @@ app.get('/', function(req, res) {
 	res.send('Welcome to the glossary');
 });
 
-app.get('/eng/:w', function(req, res) {
+//app.get('/engrus', cors(), function(req, res) {
+//        engrus.findOne({ eng: "notebook"}, function (err, docs) {
+//            res.json(docs);
+//        });
+//});
+
+app.get('/engrus/:w', cors(), function(req, res) {
 	if (req.params.w) {
 		console.log("requested term: "+req.params.w);
-        engrus.find({ eng: req.params.w}, function (err, docs) {
+        engrus.findOne({ eng: req.params.w}, function (err, docs) {
             res.json(docs);
         });
     }
@@ -45,4 +59,7 @@ app.get('/eng/:w', function(req, res) {
 
 
 
-app.listen(port);
+
+var server = app.listen(port, function() {
+        console.log('CORS-enabled web server listening on port %s.', port);
+});
