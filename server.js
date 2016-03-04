@@ -50,7 +50,7 @@ app.get('/api', function(req, res) {
 app.get('/api/engrus/:w', cors(), function(req, res) {
 	if (req.params.w) {
 		console.log("requested term: "+req.params.w);
-        engrus.findOne({ eng: req.params.w}, function (error, docs) {
+        engrus.findOne({ eng: req.params.w}, { _id:0, rus: 1, subject: 1 }, function (error, docs) {
         if (error) {
             return res.
                 status(status.INTERNAL_SERVER_ERROR).

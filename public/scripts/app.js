@@ -32,8 +32,13 @@ glossariesApp.config(function($routeProvider) {
         templateUrl: './views/engrus_search.html',
         controller: 'EngRusController'
     })
-   .when('/engrus/:w', {
-  //     template: '<eng-rus-directive></eng-rus-directive>'
+//   .when('/engrus/:w', {
+//  //     template: '<eng-rus-directive></eng-rus-directive>'
+//      templateUrl: './views/engrus_result.html',
+//      controller: 'EngRusController'
+//    })
+    
+    .when('/engrus_result', {
       templateUrl: './views/engrus_result.html',
       controller: 'EngRusController'
     })
