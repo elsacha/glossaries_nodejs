@@ -24,16 +24,17 @@ var glossariesApp = angular.module('glossariesApp', ['ngRoute']);
 glossariesApp.config(function($routeProvider) {
     $routeProvider                       
   .when('/', {
-        templateUrl: 'views/engrus.html',
+        templateUrl: './views/engrus_search.html',
         controller: 'EngRusController'
     })
     
-    .when('/test', {
-        templateUrl: './test.html',
+    .when('/engrus', {
+        templateUrl: './views/engrus_search.html',
+        controller: 'EngRusController'
     })
    .when('/engrus/:w', {
   //     template: '<eng-rus-directive></eng-rus-directive>'
-      templateUrl: 'views/engrus.html',
+      templateUrl: './views/engrus_result.html',
       controller: 'EngRusController'
     })
 });

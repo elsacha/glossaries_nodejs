@@ -1,12 +1,11 @@
 var express = require('express')
   , cors = require('cors')
-  , app = express();
+  , app = express()
+  , status = require('http-status');
 
-//var corsOptions = {
-//  origin: 'http://127.0.0.1'
-//};
 
-app.options('/engrus/:w', cors()); // enable pre-flight request for DELETE request
+app.use(express.static(__dirname + '/public'));
+app.options('/api/engrus/:w', cors()); // enable pre-flight request for DELETE request
 
 
 var port = process.env.PORT || 3000;
@@ -36,9 +35,9 @@ var engrus = mongoose.model('engrus', engRusSchema,
 	'EngRus');//last parameter collection name
 
 // Bootstrap express
-var app = express();
+//var app = express();
 
-app.get('/', function(req, res) {
+app.get('/api', function(req, res) {
 	res.send('Welcome to the glossary');
 });
 
@@ -48,10 +47,20 @@ app.get('/', function(req, res) {
 //        });
 //});
 
-app.get('/engrus/:w', cors(), function(req, res) {
+app.get('/api/engrus/:w', cors(), function(req, res) {
 	if (req.params.w) {
 		console.log("requested term: "+req.params.w);
-        engrus.findOne({ eng: req.params.w}, function (err, docs) {
+        engrus.findOne({ eng: req.params.w}, function (error, docs) {
+        if (error) {
+            return res.
+                status(status.INTERNAL_SERVER_ERROR).
+                json({ error: error.toString() });
+        }
+        if (!docs) {
+          return res.
+            status(status.NOT_FOUND).
+            json({ error: 'Not found' });
+        }
             res.json(docs);
         });
     }
