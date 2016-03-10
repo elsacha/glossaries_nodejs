@@ -1,24 +1,30 @@
 {
-  "name": "glossaries",
-  "version": "1.0.0",
-  "description": "Bilingual glossaries",
-  "main": "index.js",
+  "name": "glossaries4",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
-  "keywords": [
-    "English",
-    "Russian",
-    "glossaries"
-  ],
-  "author": "elsacha",
-  "license": "ISC",
   "dependencies": {
-    "cors": "^2.7.1",
-    "express": "^4.13.4",
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "dotenv": "^2.0.0",
+    "express": "~4.13.1",
+    "express-session": "^1.13.0",
+    "express-jwt": "^3.0.1",
     "http-status": "^0.2.0",
+    "jade": "~1.11.0",
+    "jsonwebtoken": "^5.0.2",
     "mongoose": "^4.4.5",
+    "morgan": "~1.6.1",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.0",
+    "passport-github": "^1.1.0",
+    "passport-local": "^1.0.0",
+    "request": "~2.51.0",
+    "serve-favicon": "~2.3.0",
     "underscore": "^1.8.3",
-    "wagner-core": "^0.2.0"
+    "uglify-js": "~2.4.15"
   }
 }

@@ -1,5 +1,7 @@
-node_modules/
-data/
-/bower_components
-commands.txt
+# Dependency directory
+node_modules
+
+# Environment variables
+.env
+
 *.zip
